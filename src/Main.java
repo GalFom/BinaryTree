@@ -1,17 +1,22 @@
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Tree tree = new Tree();
+    public static void main(String[] args) throws IOException {
 
-        tree.add("qwe");
-        tree.add("asd");
-        tree.add("123");
+        WordTree wordTree = new WordTree("C:\\Users\\Галина\\IdeaProjects\\BinaryTree\\src\\input.txt");
+        Tree tree = wordTree.fillTree();
 
-        if(tree.has("123")) {
-            System.out.println("Has 123");
-        } else {
-            System.out.println("Has not 123");
+        System.out.println("Введите строку");
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+
+        if (tree.has(str)) {
+            System.out.println(str + " содержится в файле");
         }
-
+        else {
+            System.out.println(str + " не содержится в файле");
+        }
     }
 }
